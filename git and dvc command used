@@ -1,0 +1,38 @@
+git init
+
+git add .
+
+git commit -m "Initial project structure"
+
+dvc init
+
+git add .
+
+git commit -m "Initialize DVC"
+
+dvc add data/raw
+git add data/raw.dvc .gitignore
+git commit -m "Track raw dataset using DVC"
+
+ have executed these 9 git and dvc command 
+ but faced error in the the last three cause 
+ dataset was already intialized by git
+
+🔹 Step 1: Remove dataset from Git tracking (data will NOT be deleted)
+git rm -r --cached data/raw
+git commit -m "Stop tracking raw data with Git"
+
+Step 2: Now add dataset to DVC
+dvc add data/raw
+
+ Step 3: Save DVC metadata in Git
+ git add data/raw.dvc
+git commit -m "Track raw dataset using DVC"
+"“The dataset is tracked via DVC using a .dvc file, which is versioned by Git.”
+
+ git log --oneline #Command to see commit history
+
+git add data/.gitignore "git and dvc command used"
+git commit -m "Add DVC ignore rules and documentation"
+
+git status

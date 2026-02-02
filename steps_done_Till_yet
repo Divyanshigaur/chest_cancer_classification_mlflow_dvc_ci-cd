@@ -1,0 +1,49 @@
+You can confidently say:
+
+✔ Git initialized
+
+✔ DVC initialized
+
+✔ Dataset tracked with DVC (not Git)
+
+✔ Clean commit history
+
+“I initialized Git and DVC, ensured large datasets are tracked using DVC instead of Git, and verified data integrity using DVC status.”
+
+ Phase 2: Model Training + MLflow
+ wrote code in train.py
+ “The training script loads parameters from params.yaml, trains a CNN on chest cancer images, logs experiments using MLflow, and saves the trained model. The script is executed via a DVC pipeline for reproducibility.”
+
+Big picture (one line)
+
+DVC manages data & ML pipelines.
+CI/CD automates running those pipelines and deploying results
+
+1️⃣ Activate correct environment BEFORE running code
+
+In VS Code terminal (or PowerShell):
+conda activate chest_ml
+
+4️⃣ What files will be created after training(train.py)
+After training finishes, you should see:
+
+📁 models/
+Saved model file (e.g. .h5, .pt, .keras)
+
+📁 mlruns/
+MLflow experiment logs
+
+Metrics (accuracy, loss)
+
+Parameters (epochs, batch size, lr)
+
+📄 mlflow.db
+MLflow tracking database
+
+This proves:
+
+“I trained a model with experiment tracking (MLOps)”
+
+mlflow ui
+http://127.0.0.1:5000/#/experiments    #for mlflow
+
