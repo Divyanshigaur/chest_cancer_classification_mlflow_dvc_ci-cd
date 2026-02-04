@@ -1,9 +1,32 @@
 stages:
+
+  preprocessing:
+    cmd: python src/preprocessing.py
+    deps:
+      - src/preprocessing.py
+      - data/raw
+      - params.yaml
+    outs:
+      - data/train
+      - data/val
+      - data/test
+
+
   train:
     cmd: python src/train.py
     deps:
       - src/train.py
-      - data/raw
+      - data/train
+      - data/val
       - params.yaml
     outs:
       - models/model.h5
+
+
+  evaluation:
+    cmd: python src/evaluate.py
+    deps:
+      - src/evaluate.py
+      - models/model.h5
+      - data/test
+      - params.yaml

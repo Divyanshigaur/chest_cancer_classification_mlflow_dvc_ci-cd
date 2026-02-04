@@ -36,3 +36,28 @@ git add data/.gitignore "git and dvc command used"
 git commit -m "Add DVC ignore rules and documentation"
 
 git status
+
+for ci/cd 
+git remote add origin https://github.com/Divyanshigaur/chest_cancer_classification_mlflow_dvc_ci-cd.git
+git remote -v
+
+🟢 Next commands (do them in order)
+If this is your first push
+git branch -M main
+git push -u origin main
+This will:
+
+Push your code
+
+NOT push dataset (DVC handles that)
+
+Enable CI/CD triggers later
+
+File models/model.h5 is 273.64 MB
+GitHub limit = 100 MB
+git rm --cached models/model.h5#didnt ran
+
+
+
+
+
